@@ -1,6 +1,5 @@
-format_version: 3
 pipelines:
-  Test:
+  MyFirst:
     group: test
     label_template: ${COUNT}
     lock_behavior: none
@@ -28,3 +27,5 @@ pipelines:
                 - test
                 command: echo
                 run_if: passed
+
+
