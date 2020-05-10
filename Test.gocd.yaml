@@ -18,7 +18,6 @@ pipelines:
           approval: manual
           jobs:
             GetRepo:
-              elastic_profile_id: git
               tasks:
                 - script: |
                     echo Getting repo..
