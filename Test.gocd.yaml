@@ -6,7 +6,7 @@ pipelines:
     display_order: -1
     materials:
       git:
-        git: git@github.com:hiyer28/sampleapp.git
+        git: https://github.com/hiyer28/sampleapp.git
         shallow_clone: false
         auto_update: true
         branch: master
