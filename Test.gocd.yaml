@@ -11,21 +11,20 @@ pipelines:
         auto_update: true
         branch: master
     stages:
-    - defaultStage:
-        fetch_materials: true
-        keep_artifacts: false
-        clean_workspace: false
-        approval:
-          type: success
-          allow_only_on_success: false
-        jobs:
-          defaultJob:
-            timeout: 0
-            tasks:
-            - exec:
-                arguments:
-                - test
-                command: echo
-                run_if: passed
+    - checkout:
+          clean_workspace: true
+          keep_artifacts: true
+          fetch_materials: true
+          approval: manual
+          jobs:
+            GetRepo:
+              elastic_profile_id: git
+              tasks:
+                - script: |
+                    echo Getting repo..
+              artifacts:
+                - build:
+                    source: "**/*"
+                    destination: repo
 
 
