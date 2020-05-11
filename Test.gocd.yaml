@@ -4,48 +4,44 @@ pipelines:
     label_template: ${COUNT}
     lock_behavior: none
     display_order: -1
-    template: tempalePipeLine
     materials:
       git:
         git: https://github.com/hiyer28/sampleapp.git
         shallow_clone: false
         auto_update: true
-        branch: master        
-    templates:
-       pipeline:
-        tempalePipeLine:
-           stages:
-            - checkout:
-                  clean_workspace: true
-                  keep_artifacts: true
-                  fetch_materials: true
-                  approval:
-                    type: success
-                    allow_only_on_success: false
-                  jobs:
-                      hello:
-                        timeout: 0
-                        tasks:
-                        - exec:
-                            arguments:
-                            - test
-                            command: echo
-                            run_if: passed 
-            - Deployment:
-                  clean_workspace: true
-                  keep_artifacts: true
-                  fetch_materials: false
-                  approval:
-                    type: success
-                    allow_only_on_success: false
-                  jobs:
-                      hello:
-                        timeout: 0
-                        tasks:
-                        - exec:
-                            arguments:
-                            - test
-                            command: echo
-                            run_if: passed             
+        branch: master
+    stages:
+    - checkout:
+          clean_workspace: true
+          keep_artifacts: true
+          fetch_materials: true
+          approval:
+            type: success
+            allow_only_on_success: false
+          jobs:
+              hello:
+                timeout: 0
+                tasks:
+                - exec:
+                    arguments:
+                    - test
+                    command: echo
+                    run_if: passed 
+    - Deployment:
+          clean_workspace: true
+          keep_artifacts: true
+          fetch_materials: false
+          approval:
+            type: success
+            allow_only_on_success: false
+          jobs:
+              hello:
+                timeout: 0
+                tasks:
+                - exec:
+                    arguments:
+                    - test
+                    command: echo
+                    run_if: passed 
 
 
