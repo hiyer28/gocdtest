@@ -4,15 +4,16 @@ pipelines:
     label_template: ${COUNT}
     lock_behavior: none
     display_order: -1
+    template: tempalePipeLine
     materials:
       git:
         git: https://github.com/hiyer28/sampleapp.git
         shallow_clone: false
         auto_update: true
-        branch: master
-        template: firsttemplate
+        branch: master        
     templates:
-       firsttemplate:
+       pipeline:
+        tempalePipeLine:
            stages:
             - checkout:
                   clean_workspace: true
