@@ -17,10 +17,7 @@ pipelines:
           fetch_materials: true
           approval: manual
           jobs:
-            GetRepo:
-              tasks:
-                - script: |
-                    echo Getting repo..
+            GetRepo:              
               artifacts:
                 - build:
                     source: "**/*"
