@@ -18,10 +18,7 @@ pipelines:
           jobs:
             GetRepo:
               tasks:
-                - script: |
-                    set -x
-                    
-                    cd repo           
+                - script: echo Getting repo..    
     - Deployment:
           clean_workspace: true
           keep_artifacts: true
@@ -29,7 +26,6 @@ pipelines:
           jobs:
             Deploy:
               tasks:
-                - script: |
-                    echo Getting repo..
+                - script: echo Getting repo..
 
 
