@@ -15,7 +15,6 @@ pipelines:
           clean_workspace: true
           keep_artifacts: true
           fetch_materials: true
-          approval: manual
           jobs:
             GetRepo:
               tasks:
