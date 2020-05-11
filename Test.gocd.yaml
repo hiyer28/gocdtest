@@ -54,7 +54,7 @@ pipelines:
             git: https://github.com/hiyer28/sampleapp.git
             shallow_clone: false
             auto_update: true
-            branch: release/1.59.x
+            branch: release/1.60.x
         stages:
         - checkout:
               clean_workspace: true
