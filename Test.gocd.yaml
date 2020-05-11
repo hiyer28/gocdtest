@@ -19,7 +19,9 @@ pipelines:
             GetRepo:
               tasks:
                 - script: |
-                    echo Getting repo..             
+                    set -x
+                    
+                    cd repo           
     - Deployment:
           clean_workspace: true
           keep_artifacts: true
