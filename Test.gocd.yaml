@@ -44,7 +44,7 @@ pipelines:
                     command: echo
                     run_if: passed 
                     
-    Release:
+  Release:
         group: test
         label_template: ${COUNT}
         lock_behavior: none
