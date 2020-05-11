@@ -20,11 +20,7 @@ pipelines:
             GetRepo:
               tasks:
                 - script: |
-                    echo Getting repo..
-              artifacts:
-                - build:
-                    source: "**/*"
-                    destination: repo
+                    echo Getting repo..             
     - Deployment:
           clean_workspace: true
           keep_artifacts: true
