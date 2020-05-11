@@ -25,5 +25,14 @@ pipelines:
                 - build:
                     source: "**/*"
                     destination: repo
+    - Deployment:
+          clean_workspace: true
+          keep_artifacts: true
+          fetch_materials: false
+          jobs:
+            Deploy:
+              tasks:
+                - script: |
+                    echo Getting repo..
 
 
