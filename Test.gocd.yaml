@@ -1,5 +1,5 @@
 pipelines:
-  MyFirst:
+  Master:
     group: test
     label_template: ${COUNT}
     lock_behavior: none
@@ -43,5 +43,50 @@ pipelines:
                     - test
                     command: echo
                     run_if: passed 
+                    
+    Release:
+        group: test
+        label_template: ${COUNT}
+        lock_behavior: none
+        display_order: -1
+        materials:
+          git:
+            git: https://github.com/hiyer28/sampleapp.git
+            shallow_clone: false
+            auto_update: true
+            branch: release/1.59.x
+        stages:
+        - checkout:
+              clean_workspace: true
+              keep_artifacts: true
+              fetch_materials: true
+              approval:
+                type: success
+                allow_only_on_success: false
+              jobs:
+                  hello:
+                    timeout: 0
+                    tasks:
+                    - exec:
+                        arguments:
+                        - test
+                        command: echo
+                        run_if: passed 
+        - Deployment:
+              clean_workspace: true
+              keep_artifacts: true
+              fetch_materials: false
+              approval:
+                type: success
+                allow_only_on_success: false
+              jobs:
+                  hello:
+                    timeout: 0
+                    tasks:
+                    - exec:
+                        arguments:
+                        - test
+                        command: echo
+                        run_if: passed                 
 
 
